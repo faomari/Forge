@@ -55,14 +55,6 @@ fun BrowseScreen(onAdd: (Workout) -> Unit) {
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(bottom = 96.dp)
         ) {
-            item {
-                Text(
-                    "Choose a category",
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    fontSize = 13.sp,
-                    modifier = Modifier.padding(start = 16.dp, top = 8.dp, bottom = 8.dp)
-                )
-            }
             items(Category.ordered, key = { it }) { cat ->
                 val count = catalog.count { it.category == cat }
                 CategoryTile(cat, count) { selected = cat }

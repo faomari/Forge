@@ -1,5 +1,6 @@
 package com.example.forge
 
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.layout.ContentScale
@@ -285,18 +286,19 @@ private fun HeaderBanner(tab: Int, onOpenSettings: () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .statusBarsPadding()
-            .height(96.dp)
+            .height(64.dp)
             .background(Color(0xFF000000))
     ) {
         Image(
             painter = painterResource(res),
             contentDescription = null,
-            contentScale = ContentScale.Crop,
-            modifier = Modifier.fillMaxSize()
+            contentScale = ContentScale.Fit,
+            alignment = Alignment.CenterStart,
+            modifier = Modifier.fillMaxHeight().fillMaxWidth().padding(start = 16.dp, end = 48.dp)
         )
         IconButton(
             onClick = onOpenSettings,
-            modifier = Modifier.align(Alignment.TopEnd).padding(top = 8.dp, end = 4.dp)
+            modifier = Modifier.align(Alignment.CenterEnd).padding(end = 4.dp)
         ) {
             Icon(Icons.Filled.Settings, contentDescription = "Settings", tint = MaterialTheme.colorScheme.primary)
         }

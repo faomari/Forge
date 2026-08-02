@@ -48,7 +48,8 @@ fun WorkoutsTab(
     } else {
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(bottom = 120.dp)
+            contentPadding = PaddingValues(bottom = 120.dp),
+            verticalArrangement = Arrangement.spacedBy(0.dp)
         ) {
             items(workouts, key = { it.id }) { workout ->
                 WorkoutCard(workout = workout, onClick = { onOpen(workout) })
